@@ -30,8 +30,6 @@
 			
 			foreach($possible_paths as $path) {
 				
-				echo $path.$directory.'/'.$class.'.php';
-				
 				if(file_exists($path.$directory.'/'.$class.'.php')) {
 					
 					require $path.$directory.'/'.$class.'.php';
@@ -39,8 +37,6 @@
 					break;
 				
 				}
-			
-				
 				
 			}
 		
