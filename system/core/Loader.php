@@ -4,7 +4,8 @@
 	
 		Loader
 		
-		The Loader class will load nessary classes for inclusion in controllers.
+		The Loader class will load necessary classes for inclusion in framework
+			files.
 	
 	*/
 	
@@ -12,21 +13,39 @@
 		
 		public function __construct() {
 		
-			$this->loaded_classes = array();
-			
-			var_dump(SYS_PATH);
-		
 		}// end __Construct Function
 		
-		public function loadClass($class,$directory) {
+		# requires requested file, and returns an instance of the required class
+		public function &loadClass($class,$directory) {
 			
 			static $loaded_classes = array();
 			
-			if(!isset($loaded_classes[$class])) {
+			if(isset($loaded_classes[$class])) {
 			
 				return $loaded_classes[$class];
 			
 			}
+			
+			$possible_paths = [APP_PATH,SYSTEM_PATH];
+			
+			foreach($possible_paths as $path) {
+				
+				echo $path.$directory.'/'.$class.'.php';
+				
+				if(file_exists($path.$directory.'/'.$class.'.php')) {
+					
+					require $path.$directory.'/'.$class.'.php';
+					
+					break;
+				
+				}
+			
+				
+				
+			}
+		
+			$loaded_classes[$class] = new $class();
+			return $loaded_classes[$class];
 		
 		}// end Load_Class Function
 	
