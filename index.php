@@ -2,11 +2,17 @@
 
 	$system_path = "system";
 	
-	$application_folder = "application";
+	$application_path = "application";
 	
 	if(realpath($system_path) !== False) {
 	
 		$system_path = realpath($system_path).'/';
+	
+	}
+	
+	if(realpath($application_path) !== FALSE) {
+	
+		$application_path = realpath($application_path).'/';
 	
 	}
 	
@@ -19,6 +25,5 @@
 	define("SELF",pathinfo(__FILE__,PATHINFO_BASENAME));
 
 	define("SYS_PATH",str_replace("\\","/",$system_path));
-	define("APP_PATH",BASE_PATH.'/'.$application_folder.'/');
+	define("APP_PATH",str_replace("\\","/",$application_path));
 	
-	var_dump(APP_PATH);
