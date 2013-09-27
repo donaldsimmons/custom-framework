@@ -24,6 +24,6 @@
 	
 	define("SELF",pathinfo(__FILE__,PATHINFO_BASENAME));
 
-	define("SYS_PATH",str_replace("\\","/",$system_path));
+	define("SYSTEM_PATH",str_replace("\\","/",$system_path));
 	define("APP_PATH",str_replace("\\","/",$application_path));
 	
