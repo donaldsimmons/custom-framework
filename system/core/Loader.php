@@ -21,10 +21,12 @@
 			static $loaded_classes = array();
 			
 			if(isset($loaded_classes[$class])) {
-			
+				
 				return $loaded_classes[$class];
 			
 			}
+			
+			$found_path = FALSE;
 			
 			$possible_paths = [APP_PATH,SYSTEM_PATH];
 			
@@ -34,9 +36,17 @@
 					
 					require $path.$directory.'/'.$class.'.php';
 					
+					$found_path = TRUE;
+					
 					break;
 				
 				}
+				
+			}
+			
+			if($found_path === FALSE) {
+				
+				exit("Couldn't find the desired file. Check: ".SELF);
 				
 			}
 		
