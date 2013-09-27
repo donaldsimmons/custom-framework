@@ -10,9 +10,11 @@
 	
 	class Loader {
 		
-		public __construct() {
+		public function __construct() {
 		
 			$this->loaded_classes = array();
+			
+			var_dump(SYS_PATH);
 		
 		}// end __Construct Function
 		
