@@ -16,7 +16,7 @@
 		}// end __Construct Function
 		
 		# requires requested file, and returns an instance of the required class
-		public function &loadClass($class,$directory) {
+		public function &load_class($class,$directory) {
 			
 			/*
 				
