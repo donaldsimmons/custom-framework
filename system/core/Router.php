@@ -15,9 +15,11 @@
 		
 		public $error_routes = array();
 		
-		public $class = '';
+		public $controller = '';
 		
 		public $method = 'index';
+		
+		public $arguments = array();
 		
 		public $directory = '';
 		
@@ -65,7 +67,17 @@
 		
 		private function determine_uri($path) {
 		
+			if(trim($path,'/') == '') {
 			
+				$this->controller = 'default';
+				$this->method = 'index';
+				
+			
+			}else{
+			
+				
+				
+			}
 		
 		}
 		
