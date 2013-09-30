@@ -40,13 +40,7 @@
 			
 			}
 			
-			# if the 
-			if(trim($path,'/') != '') {
-			
-				$this->determine_uri($path);
-				return;
-			
-			}
+			$this->determine_uri($path);
 			
 			
 		}// end Set_Route Function
@@ -68,6 +62,12 @@
 			
 			
 		}// end Get_Method Function
+		
+		private function determine_uri($path) {
+		
+			
+		
+		}
 		
 		private function validate_uri() {
 		
