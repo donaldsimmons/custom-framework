@@ -21,26 +21,33 @@
 		
 		public $directory = '';
 		
+		private $uri_string;
+		
 		public function __construct($url_values) {
 		
 		}// end _Construct Function	
 		
 		public function set_route() {
 			
+			# check for passed in controller/method options from URL
 			if(isset($_SERVER['PATH_INFO'])) {
 			
 				$path = $_SERVER['PATH_INFO'];
-				
-				$new_path = trim('/',$path);
-				
-				echo 'server';
 			
 			}else{
 			
 				$path = getenv('path_info');
-				echo 'getenv';
 			
 			}
+			
+			# if the 
+			if(trim($path,'/') != '') {
+			
+				$this->determine_uri($path);
+				return;
+			
+			}
+			
 			
 		}// end Set_Route Function
 		
@@ -67,6 +74,7 @@
 			
 		
 		}// end Validate_URI Function
+		
 	
 	}// end Router Class
 
